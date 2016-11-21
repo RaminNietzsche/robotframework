@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20161121 01:24:40.216" generator="Robot 3.0.1.dev20151231 (Python 2.7.12 on linux2)">
+<suite source="/file/Work/ /Script/test/robotframework/demo/QuickStartGuide-master/test.robot" id="s1" name="Test">
+<test id="s1-t1" name="User can create an account and log in">
+<kw name="Create valid user">
+<arguments>
+<arg>fred</arg>
+<arg>P4ssw0rd</arg>
+</arguments>
+<kw name="Create User" library="LoginLibrary">
+<arguments>
+<arg>${username}</arg>
+<arg>${password}</arg>
+</arguments>
+<status status="PASS" endtime="20161121 01:24:40.429" starttime="20161121 01:24:40.360"></status>
+</kw>
+<kw name="Status Should Be" library="LoginLibrary">
+<arguments>
+<arg>SUCCES-S</arg>
+</arguments>
+<msg timestamp="20161121 01:24:40.433" level="FAIL">Expected status to be 'SUCCES-S' but was 'SUCCESS'.</msg>
+<status status="FAIL" endtime="20161121 01:24:40.433" starttime="20161121 01:24:40.430"></status>
+</kw>
+<status status="FAIL" endtime="20161121 01:24:40.434" starttime="20161121 01:24:40.358"></status>
+</kw>
+<status status="FAIL" endtime="20161121 01:24:40.435" critical="yes" starttime="20161121 01:24:40.356">Expected status to be 'SUCCES-S' but was 'SUCCESS'.</status>
+</test>
+<test id="s1-t2" name="User cannot log in with bad password">
+<kw name="Create valid user">
+<arguments>
+<arg>betty</arg>
+<arg>P4ssw0rd</arg>
+</arguments>
+<kw name="Create User" library="LoginLibrary">
+<arguments>
+<arg>${username}</arg>
+<arg>${password}</arg>
+</arguments>
+<status status="PASS" endtime="20161121 01:24:40.511" starttime="20161121 01:24:40.440"></status>
+</kw>
+<kw name="Status Should Be" library="LoginLibrary">
+<arguments>
+<arg>SUCCES-S</arg>
+</arguments>
+<msg timestamp="20161121 01:24:40.514" level="FAIL">Expected status to be 'SUCCES-S' but was 'SUCCESS'.</msg>
+<status status="FAIL" endtime="20161121 01:24:40.515" starttime="20161121 01:24:40.512"></status>
+</kw>
+<status status="FAIL" endtime="20161121 01:24:40.516" starttime="20161121 01:24:40.438"></status>
+</kw>
+<status status="FAIL" endtime="20161121 01:24:40.516" critical="yes" starttime="20161121 01:24:40.437">Expected status to be 'SUCCES-S' but was 'SUCCESS'.</status>
+</test>
+<test id="s1-t3" name="User can change password">
+<kw name="Given a user has a valid account">
+<kw name="Create valid user">
+<arguments>
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+</arguments>
+<kw name="Create User" library="LoginLibrary">
+<arguments>
+<arg>${username}</arg>
+<arg>${password}</arg>
+</arguments>
+<status status="PASS" endtime="20161121 01:24:40.594" starttime="20161121 01:24:40.523"></status>
+</kw>
+<kw name="Status Should Be" library="LoginLibrary">
+<arguments>
+<arg>SUCCES-S</arg>
+</arguments>
+<msg timestamp="20161121 01:24:40.597" level="FAIL">Expected status to be 'SUCCES-S' but was 'SUCCESS'.</msg>
+<status status="FAIL" endtime="20161121 01:24:40.598" starttime="20161121 01:24:40.596"></status>
+</kw>
+<status status="FAIL" endtime="20161121 01:24:40.599" starttime="20161121 01:24:40.521"></status>
+</kw>
+<status status="FAIL" endtime="20161121 01:24:40.600" starttime="20161121 01:24:40.520"></status>
+</kw>
+<status status="FAIL" endtime="20161121 01:24:40.601" critical="yes" starttime="20161121 01:24:40.518">Expected status to be 'SUCCES-S' but was 'SUCCESS'.</status>
+</test>
+<test id="s1-t4" name="Invalid password">
+<kw name="Creating user with invalid password should fail">
+<arguments>
+<arg>abCD5</arg>
+<arg>${PWD INVALID LENGTH}</arg>
+</arguments>
+<kw name="Create User" library="LoginLibrary">
+<arguments>
+<arg>example</arg>
+<arg>${password}</arg>
+</arguments>
+<status status="PASS" endtime="20161121 01:24:40.676" starttime="20161121 01:24:40.605"></status>
+</kw>
+<kw name="Status Should Be" library="LoginLibrary">
+<arguments>
+<arg>Creating user failed: ${error}</arg>
+</arguments>
+<status status="PASS" endtime="20161121 01:24:40.679" starttime="20161121 01:24:40.677"></status>
+</kw>
+<status status="PASS" endtime="20161121 01:24:40.679" starttime="20161121 01:24:40.604"></status>
+</kw>
+<kw name="Creating user with invalid password should fail">
+<arguments>
+<arg>abCD567890123</arg>
+<arg>${PWD INVALID LENGTH}</arg>
+</arguments>
+<kw name="Create User" library="LoginLibrary">
+<arguments>
+<arg>example</arg>
+<arg>${password}</arg>
+</arguments>
+<status status="PASS" endtime="20161121 01:24:40.750" starttime="20161121 01:24:40.682"></status>
+</kw>
+<kw name="Status Should Be" library="LoginLibrary">
+<arguments>
+<arg>Creating user failed: ${error}</arg>
+</arguments>
+<status status="PASS" endtime="20161121 01:24:40.752" starttime="20161121 01:24:40.751"></status>
+</kw>
+<status status="PASS" endtime="20161121 01:24:40.753" starttime="20161121 01:24:40.680"></status>
+</kw>
+<kw name="Creating user with invalid password should fail">
+<arguments>
+<arg>123DEFG</arg>
+<arg>${PWD INVALID CONTENT}</arg>
+</arguments>
+<kw name="Create User" library="LoginLibrary">
+<arguments>
+<arg>example</arg>
+<arg>${password}</arg>
+</arguments>
+<status status="PASS" endtime="20161121 01:24:40.824" starttime="20161121 01:24:40.756"></status>
+</kw>
+<kw name="Status Should Be" library="LoginLibrary">
+<arguments>
+<arg>Creating user failed: ${error}</arg>
+</arguments>
+<status status="PASS" endtime="20161121 01:24:40.827" starttime="20161121 01:24:40.825"></status>
+</kw>
+<status status="PASS" endtime="20161121 01:24:40.827" starttime="20161121 01:24:40.754"></status>
+</kw>
+<kw name="Creating user with invalid password should fail">
+<arguments>
+<arg>abcd56789</arg>
+<arg>${PWD INVALID CONTENT}</arg>
+</arguments>
+<kw name="Create User" library="LoginLibrary">
+<arguments>
+<arg>example</arg>
+<arg>${password}</arg>
+</arguments>
+<status status="PASS" endtime="20161121 01:24:40.898" starttime="20161121 01:24:40.830"></status>
+</kw>
+<kw name="Status Should Be" library="LoginLibrary">
+<arguments>
+<arg>Creating user failed: ${error}</arg>
+</arguments>
+<status status="PASS" endtime="20161121 01:24:40.901" starttime="20161121 01:24:40.899"></status>
+</kw>
+<status status="PASS" endtime="20161121 01:24:40.902" starttime="20161121 01:24:40.828"></status>
+</kw>
+<kw name="Creating user with invalid password should fail">
+<arguments>
+<arg>AbCdEfGh</arg>
+<arg>${PWD INVALID CONTENT}</arg>
+</arguments>
+<kw name="Create User" library="LoginLibrary">
+<arguments>
+<arg>example</arg>
+<arg>${password}</arg>
+</arguments>
+<status status="PASS" endtime="20161121 01:24:40.973" starttime="20161121 01:24:40.904"></status>
+</kw>
+<kw name="Status Should Be" library="LoginLibrary">
+<arguments>
+<arg>Creating user failed: ${error}</arg>
+</arguments>
+<status status="PASS" endtime="20161121 01:24:40.976" starttime="20161121 01:24:40.974"></status>
+</kw>
+<status status="PASS" endtime="20161121 01:24:40.976" starttime="20161121 01:24:40.903"></status>
+</kw>
+<kw name="Creating user with invalid password should fail">
+<arguments>
+<arg>abCD56+</arg>
+<arg>${PWD INVALID CONTENT}</arg>
+</arguments>
+<kw name="Create User" library="LoginLibrary">
+<arguments>
+<arg>example</arg>
+<arg>${password}</arg>
+</arguments>
+<status status="PASS" endtime="20161121 01:24:41.047" starttime="20161121 01:24:40.979"></status>
+</kw>
+<kw name="Status Should Be" library="LoginLibrary">
+<arguments>
+<arg>Creating user failed: ${error}</arg>
+</arguments>
+<status status="PASS" endtime="20161121 01:24:41.050" starttime="20161121 01:24:41.048"></status>
+</kw>
+<status status="PASS" endtime="20161121 01:24:41.050" starttime="20161121 01:24:40.977"></status>
+</kw>
+<status status="PASS" endtime="20161121 01:24:41.051" critical="yes" starttime="20161121 01:24:40.602"></status>
+</test>
+<test id="s1-t5" name="User status is stored in database">
+<kw name="Create valid user">
+<arguments>
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+</arguments>
+<kw name="Create User" library="LoginLibrary">
+<arguments>
+<arg>${username}</arg>
+<arg>${password}</arg>
+</arguments>
+<status status="PASS" endtime="20161121 01:24:41.127" starttime="20161121 01:24:41.057"></status>
+</kw>
+<kw name="Status Should Be" library="LoginLibrary">
+<arguments>
+<arg>SUCCES-S</arg>
+</arguments>
+<msg timestamp="20161121 01:24:41.131" level="FAIL">Expected status to be 'SUCCES-S' but was 'SUCCESS'.</msg>
+<status status="FAIL" endtime="20161121 01:24:41.132" starttime="20161121 01:24:41.128"></status>
+</kw>
+<status status="FAIL" endtime="20161121 01:24:41.133" starttime="20161121 01:24:41.054"></status>
+</kw>
+<tags>
+<tag>database</tag>
+<tag>variables</tag>
+</tags>
+<status status="FAIL" endtime="20161121 01:24:41.134" critical="yes" starttime="20161121 01:24:41.052">Expected status to be 'SUCCES-S' but was 'SUCCESS'.</status>
+</test>
+<status status="FAIL" endtime="20161121 01:24:41.137" starttime="20161121 01:24:40.221"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="4" pass="1">Critical Tests</stat>
+<stat fail="4" pass="1">All Tests</stat>
+</total>
+<tag>
+<stat fail="1" pass="0">database</stat>
+<stat fail="1" pass="0">variables</stat>
+</tag>
+<suite>
+<stat fail="4" id="s1" name="Test" pass="1">Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
